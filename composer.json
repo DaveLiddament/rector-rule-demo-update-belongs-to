@@ -1,0 +1,28 @@
+{
+  "name": "dave-liddament/update-belongs-to-rector-rule-demo",
+  "description": "Demo of a Rector rule that updates belongs to method",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "dave",
+      "email": "dave@lampbristol.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Tools\\": "tools/"
+    }
+  },
+  "require": {
+    "php": ">8.2 <8.4"
+  },
+  "require-dev": {
+    "rector/rector": "^0.19.5"
+  }
+}
