@@ -23,3 +23,7 @@ It leaves the `belongsTo` call in the `Car::manufacturer` method alone, as it is
 
 Note that call to `belongsTo` in the `App\Service\CarService::doSomething` method is not updated, as it is not a call on a class that extends `Model`.
 
+
+## Tests
+
+Check out the tests in `tools/Rector/Tests/` to see how the rule is tested.
