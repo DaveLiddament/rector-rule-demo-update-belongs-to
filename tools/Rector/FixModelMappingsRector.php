@@ -38,18 +38,12 @@ final class FixModelMappingsRector extends AbstractRector
     public function refactor(Node $node): ?Node
     {
         // First we check if the method call is being made on a Model class
-        $varType = $this->getType($node->var);
-        $modelType = new ObjectType(Model::class);
-        if (!$modelType->isSuperTypeOf($varType)->yes()) {
+        if (!$this->isObjectType($node->var, new ObjectType(Model::class))) {
             return null;
         }
 
-        // Then we check if the method being called is either belongsTo or hasMany
-        $methodName = $node->name;
-        if (! $methodName instanceof Identifier) {
-            return null;
-        }
-        if (!in_array($methodName, ['belongsTo', 'hasMany'])) {
+        // Then we check if the method being called is `belongsTo`
+        if (!$this->isName($node->name, 'belongsTo')) {
             return null;
         }
 
